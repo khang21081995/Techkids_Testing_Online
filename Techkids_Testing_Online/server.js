@@ -1,10 +1,12 @@
+/* global __dirname */
+
 var http = require("http");
 var express = require("express");
 var bodyParser = require('body-parser')
 
 /******************************** Mongo DB ***************************/
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/techkids');
+mongoose.connect('mongodb://admin:admin@ds033126.mlab.com:33126/techkids-testing-online');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'DB connection error: '));
@@ -21,4 +23,4 @@ require('./routes')(app);
 
 
 
-http.createServer(app).listen(8888);
+http.createServer(app).listen(6789);
