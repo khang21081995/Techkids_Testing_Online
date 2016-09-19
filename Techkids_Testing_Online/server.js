@@ -10,17 +10,16 @@ mongoose.connect('mongodb://admin:admin@ds033126.mlab.com:33126/techkids-testing
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'DB connection error: '));
-db.once('open', function() {
-  console.log('DB connection success! ');
+db.once('open', function () {
+    console.log('DB connection success! ');
 });
 
 /******************************** Express App ************************/
 var app = express();
 app.use(express.static(__dirname + "/client"));
-app.use( bodyParser.json() );
+app.use(bodyParser.json());
 
 require('./routes')(app);
-
 
 
 http.createServer(app).listen(6789);
