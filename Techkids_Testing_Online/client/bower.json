@@ -1,0 +1,17 @@
+{
+  "name": "cd ..",
+  "homepage": "https://github.com/cuong-nguyen-thanh/web2",
+  "authors": [
+    "Cuong Nguyen <cuong.nguyen@niteco.se>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,35 +1,36 @@
 <!DOCTYPE html>
-<html>
-
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <title>Login</title>
+  <title>hello jade</title>
+  <link href="css/app.css">
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 </head>
-
 <body>
-    <section id="Login_form">
-        <form>
-            <div>
-                <div class="text-abc">Đăng nhập rồi vào đớp thính của Dung nàooooo</div>
-                <div class="right">
-                    <input type="text" name="txtUsername" value="" placeholder="Tài khoản">
-                    <input type="password" name="txtPass" value="" placeholder="Mật khẩu">
-                </div>
-                <div class="bold" >
-
-                    <input type="checkbox" name="name">
-                    <label class="checkbox-lable">Nhớ đến tao</label>
-                </div>
-                <div class="right">
-                    <input type="submit" name="btnSubmit" value="Đăng nhập">
-                </div>
-                <div class="bold">
-                    <a href="#">Quên mật khẩu?</a>
-                </div>
-            </div>
-        </form>
-    </section>
+  <h1>login</h1>
+  <p>Username:</p>
+  <input id="username" type="text">
+  <p>Password:</p>
+  <input id="password" type="password">
+  <br>
+  <input type="button" onclick="login()" value="Login">
+  <br>
+  <p id="message"></p>
+  <script type="text/javascript">
+    function login(event) {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      var msgElement = document.getElementById("message");
+      $.ajax({
+        url: "/api/user/login",
+        method: "POST",
+        contentType : "application/json",
+        data: JSON.stringify({"username": username, "password": password})
+      }).done(function(response) {
+        if (response.status) {
+          msgElement.innerHTML = "Success";
+        } else {
+          msgElement.innerHTML = "Fail";
+        }
+      });
+    }
+  </script>
 </body>
-
-</html>

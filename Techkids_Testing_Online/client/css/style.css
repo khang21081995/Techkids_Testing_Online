@@ -29,7 +29,7 @@ div[class="right"]>input{
     width: 100%;
     height: 100%;
 }
-input[type="submit"] {
+input[type="button"] {
     background-color: #0e87f1;
     color: #ffffff;
     text-transform: uppercase;

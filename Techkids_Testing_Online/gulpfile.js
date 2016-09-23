@@ -8,14 +8,15 @@ var apidoc = require('gulp-apidoc');
 //liveload
 gulp.task("liveload", ["run"], function () {
     browserSync.init({
-        proxy: "localhost:6789",
+        proxy: "localhost:8888",
         files: ["./client/**/*.*"],
         browser: ["firefox"],
-        port: "7000"
+        port: "7000",
+        startPath: "/create-user.html"
     });
 
-//    gulp.watch('./src/jade/*.jade', ['compile-jade']);
-//    gulp.watch('./src/jade/*.scss', ['compile-sass']);
+//  gulp.watch('./src/jade/*.jade', ['compile-jade']);
+//  gulp.watch('./src/jade/*.scss', ['compile-sass']);
 });
 
 gulp.task("run", function (cb) {
@@ -32,16 +33,16 @@ gulp.task("run", function (cb) {
     });
 });
 
-//gulp.task('compile-jade', function () {
-//    gulp.src('./src/jade/*.jade')
-//            .pipe(jade())
-//            .pipe(gulp.dest('./client/'))
+//gulp.task('compile-jade', function() {
+//  gulp.src('./src/jade/*.jade')
+//    .pipe(jade())
+//    .pipe(gulp.dest('./client/'))
 //});
 //
 //gulp.task('compile-sass', function () {
-//    return gulp.src('./src/sass/*.scss')
-//            .pipe(sass())
-//            .pipe(gulp.dest('./client/css/'))
+//   return gulp.src('./src/sass/*.scss')
+//      .pipe(sass())
+//      .pipe(gulp.dest('./client/css/'))
 //});
 
 gulp.task('apidoc', function (done) {
